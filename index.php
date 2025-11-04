@@ -1,6 +1,9 @@
 <?php
 
-require 'Course.php';
+require __DIR__ . '/vendor/autoload.php';
+
+use App\Course;
+use App\CourseType;
 
 $course = new Course(
     title: 'Curso profesional de PHP y Laravel',
@@ -11,7 +14,8 @@ $course = new Course(
         'PHP',
         'Laravel',
         'HTML'
-    ]
+    ],
+    type: CourseType::PAID
 );
 
 $course->addTag('Backend');
@@ -37,14 +41,7 @@ $course->addTag('JScript');
 
 <body>
 
-    <?= $course ?>
-
-    <h3>Tags:</h3>
-    <ul>
-        <?php foreach ($course->tags as $tag) : ?>
-            <li><?= $tag ?></li>
-        <?php endforeach; ?>
-    </ul>
+   <?= $course ?>
 
 </body>
 
