@@ -1,0 +1,13 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
+//$aiService = new APP\FakeAiService();
+$aiService = new App\OllamaAiService();
+//$aiService = new App\OpenAiService();
+
+return new App\Chat($aiService);
